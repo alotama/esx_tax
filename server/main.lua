@@ -16,15 +16,6 @@ function BankTax(AllUser)
     for i=1 , #AllUser,1 do 
         if (AllUser[i].bank <= Config.HoboClassLimit) then --Hobo Class
             tax = 0
-        elseif (AllUser[i].bank < Config.PoorClassLimit) then --Poor Class
-            local taxpercent = Config.PoorClassTax 
-            tax = (AllUser[i].bank*taxpercent) / 1000 
-        elseif (AllUser[i].bank < Config.LowerClassLimit) then --Lower Class
-            local taxpercent = Config.LowerClassTax 
-            tax = (AllUser[i].bank*taxpercent) / 1000 
-        elseif (AllUser[i].bank < Config.LowerMiddleClassLimit) then --Lower Middle Class
-            local taxpercent = Config.LowerMiddleClassTax 
-            tax = (AllUser[i].bank*taxpercent) / 1000 
         elseif (AllUser[i].bank < Config.MiddleClassLimit) then --Middle Class
             local taxpercent = Config.MiddleClassTax 
             tax = (AllUser[i].bank*taxpercent) / 1000
