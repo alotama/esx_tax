@@ -14,23 +14,21 @@ end
 function BankTax(AllUser)
     local tax = nil 
     for i=1 , #AllUser,1 do 
-        if (AllUser[i].bank <= Config.HoboClassLimit) then --Hobo Class
-            tax = 0
-        elseif (AllUser[i].bank < Config.MiddleClassLimit) then --Middle Class
+        if (AllUser[i].bank < Config.MiddleClassLimit) then --Hobo Class
             local taxpercent = Config.MiddleClassTax 
-            tax = (AllUser[i].bank*taxpercent) / 1000
+            tax = (AllUser[i].bank*taxpercent) / 100
         elseif (AllUser[i].bank < Config.UpperMiddleClassLimit) then --Upper Middle Class
             local taxpercent = Config.UpperMiddleClassTax 
-            tax = (AllUser[i].bank*taxpercent) / 1000
+            tax = (AllUser[i].bank*taxpercent) / 100
         elseif (AllUser[i].bank < Config.LowerHigherClassLimit) then --Lower Higher Class
             local taxpercent = Config.LowerHigherClassTax 
-            tax = (AllUser[i].bank*taxpercent) / 1000
+            tax = (AllUser[i].bank*taxpercent) / 100
         elseif  (AllUser[i].bank < Config.HigherClassLimit) then --Higher Class
             local taxpercent = Config.HigherClassTax 
-            tax = (AllUser[i].bank*taxpercent) / 1000
+            tax = (AllUser[i].bank*taxpercent) / 100
         else --Upper Higher Class 
             local taxpercent = Config.UpperHigherClassTax 
-            tax = (AllUser[i].bank*taxpercent) / 1000
+            tax = (AllUser[i].bank*taxpercent) / 100
         end
         local xPlayer = ESX.GetPlayerFromIdentifier(AllUser[i].identifier)
         if(xPlayer ~= nil) then 
